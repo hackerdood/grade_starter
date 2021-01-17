@@ -2,25 +2,65 @@ package asdf;
 
 public class Assignment {
 	
-	Assignment() {
-		
-		
+	public Assignment(String name, double pointTotal, double pointsEarned, int date, int month, int year,
+			String category) {
+		super();
+		this.name = name;
+		this.pointTotal = pointTotal;
+		this.pointsEarned = pointsEarned;
+		this.date = date;
+		this.month = month;
+		this.year = year;
+		this.category = category;
+		initializePercent();
+		initializeLetterGrade();
 	}
-	
-	
-	
-	
+
+
+
+
 	private String name;
-	private int pointTotal;
-	private int pointsEarned;
+	private double pointTotal;
+	private double pointsEarned;
 	private int date;
 	private int month;
 	private int year;
-	private double percent = pointsEarned/pointTotal * 100;
+	private double percent;
 	private String category;
+    private String letterGrade;                                                                                                                                          
+	
+	private void initializeLetterGrade() {
+		int tempGrade = (int) Math.round(percent);
+		if (tempGrade >= 93) {
+			letterGrade = "A";
+		} else if (tempGrade >= 90) {
+			letterGrade = "A-";
+		} else if (tempGrade >= 87) {
+			letterGrade = "B+";
+		} else if (tempGrade >= 83) {
+			letterGrade = "B";
+		} else if (tempGrade >= 80) {
+			letterGrade = "B-";
+		} else if (tempGrade >= 77) {
+			letterGrade = "C+";
+		} else if (tempGrade >= 73) {
+			letterGrade = "C";
+		} else if (tempGrade >= 70) {
+			letterGrade = "C-";
+		} else if (tempGrade >= 67) {
+			letterGrade = "D+";
+		} else if (tempGrade >= 60) {
+			letterGrade = "D";
+		} else if (tempGrade >= 0) {
+			letterGrade = "E";
+		} else {
+			letterGrade = "UNDEFINED";
+		}
+	}
 
-	
-	
+	private void initializePercent() {
+		percent = pointsEarned/pointTotal * 100;
+	}
 	
 	
 	
@@ -33,19 +73,19 @@ public class Assignment {
 		this.name = name;
 	}
 
-	public int getPointTotal() {
+	public double getPointTotal() {
 		return pointTotal;
 	}
 
-	public void setPointTotal(int pointTotal) {
+	public void setPointTotal(double pointTotal) {
 		this.pointTotal = pointTotal;
 	}
 
-	public int getPointsEarned() {
+	public double getPointsEarned() {
 		return pointsEarned;
 	}
 
-	public void setPointsEarned(int pointsEarned) {
+	public void setPointsEarned(double pointsEarned) {
 		this.pointsEarned = pointsEarned;
 	}
 
@@ -88,10 +128,11 @@ public class Assignment {
 		this.year = year;
 	}
 
-	public void setPercent(double percent) {
-		this.percent = percent;
+	public String getLetterGrade() {
+		return letterGrade;
 	}
 
+	
 	
 
 }

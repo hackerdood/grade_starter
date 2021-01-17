@@ -19,13 +19,20 @@ public class ghdersbgxfc {
 	
 	public static void main (String [] args) {
 		ArrayList<ClassPeriod> mainClasses = new ArrayList<ClassPeriod> ();
+		//The 0 index will be the first period class, the 4 index will be the fifth period class, etc
 		for (int i = 1; i <= 6; i++) {
 			mainClasses.add(new ClassPeriod(i));
 		}
 		
 		
-		
 		driver.close();
+		
+		System.out.println("Assignment name: " + mainClasses.get(2).s1.get(4).getName());
+		System.out.println("Total # of points: " + mainClasses.get(2).s1.get(4).getPointTotal());
+		System.out.println("Points earned: " + mainClasses.get(2).s1.get(4).getPointsEarned());
+		System.out.println("Percentage earned on assignment: " + mainClasses.get(2).s1.get(4).getPercent());
+		System.out.println("Letter grade on assignment: " + mainClasses.get(2).s1.get(4).getLetterGrade());
+
 	}
 	
 	public static WebDriver setUp () {
